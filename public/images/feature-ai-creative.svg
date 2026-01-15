@@ -1,0 +1,22 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#FAF5FF" rx="12"/>
+  <rect x="30" y="30" width="540" height="340" fill="white" rx="8" stroke="#E9D5FF" stroke-width="2"/>
+  <rect x="30" y="30" width="540" height="60" fill="#7C3AED" rx="8"/>
+  <text x="60" y="65" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">AI Creative Studio</text>
+  <rect x="60" y="120" width="480" height="60" fill="#F3F4F6" rx="8" stroke="#D1D5DB" stroke-width="2"/>
+  <text x="80" y="155" font-family="Arial, sans-serif" font-size="14" fill="#6B7280">Choose your industry: HVAC, Plumbing, Dealership, Real Estate...</text>
+  <rect x="60" y="200" width="230" height="150" fill="white" rx="8" stroke="#E9D5FF" stroke-width="2"/>
+  <rect x="70" y="210" width="210" height="90" fill="#DDD6FE" rx="4"/>
+  <text x="100" y="245" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#5B21B6">Video Ad</text>
+  <text x="100" y="265" font-family="Arial, sans-serif" font-size="10" fill="#7C3AED">AI Generated</text>
+  <rect x="70" y="310" width="90" height="25" fill="#7C3AED" rx="6"/>
+  <text x="85" y="327" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white">Preview</text>
+  <rect x="310" y="200" width="230" height="150" fill="white" rx="8" stroke="#E9D5FF" stroke-width="2"/>
+  <rect x="320" y="210" width="210" height="90" fill="#FEF3C7" rx="4"/>
+  <text x="350" y="245" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#92400E">Ad Copy</text>
+  <text x="350" y="265" font-family="Arial, sans-serif" font-size="10" fill="#D97706">AI Written</text>
+  <rect x="320" y="310" width="90" height="25" fill="#7C3AED" rx="6"/>
+  <text x="335" y="327" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white">Approve</text>
+  <circle cx="550" cy="50" r="8" fill="#14B8A6"/>
+  <text x="250" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#7C3AED">✨ AI-Powered</text>
+</svg>

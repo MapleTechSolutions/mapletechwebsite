@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="bgGradPipeline" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadowPipeline" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="shadowSmPipeline" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="500" fill="url(#bgGradPipeline)"/>
+  
+  <!-- Main Pipeline Window (Back layer) -->
+  <rect x="60" y="50" width="480" height="320" rx="12" fill="#ffffff" filter="url(#shadowPipeline)"/>
+  
+  <!-- Window Header -->
+  <rect x="60" y="50" width="480" height="40" rx="12" fill="#f8fafc"/>
+  <rect x="60" y="78" width="480" height="12" fill="#f8fafc"/>
+  <circle cx="82" cy="70" r="6" fill="#ef4444"/>
+  <circle cx="100" cy="70" r="6" fill="#eab308"/>
+  <circle cx="118" cy="70" r="6" fill="#22c55e"/>
+  <text x="300" y="75" font-family="system-ui" font-size="11" fill="#0f172a" font-weight="600" text-anchor="middle">Sales Pipeline</text>
+  
+  <!-- Pipeline Header -->
+  <text x="80" y="115" font-family="system-ui" font-size="14" fill="#0f172a" font-weight="700">Deal Pipeline</text>
+  <rect x="420" y="100" width="100" height="26" rx="6" fill="#0d9488"/>
+  <text x="470" y="117" font-family="system-ui" font-size="10" fill="#ffffff" font-weight="600" text-anchor="middle">+ New Deal</text>
+  
+  <!-- Pipeline Columns -->
+  <!-- Column 1: New Leads -->
+  <rect x="75" y="135" width="105" height="220" rx="8" fill="#f8fafc"/>
+  <text x="127" y="155" font-family="system-ui" font-size="10" fill="#64748b" font-weight="600" text-anchor="middle">NEW LEADS</text>
+  <rect x="85" y="165" width="85" height="55" rx="6" fill="#ffffff" filter="url(#shadowSmPipeline)"/>
+  <text x="95" y="182" font-family="system-ui" font-size="9" fill="#0f172a" font-weight="600">Mike Johnson</text>
+  <text x="95" y="195" font-family="system-ui" font-size="8" fill="#64748b">HVAC Repair</text>
+  <rect x="95" y="203" width="40" height="12" rx="3" fill="#dcfce7"/>
+  <text x="115" y="212" font-family="system-ui" font-size="7" fill="#15803d" text-anchor="middle">$2,400</text>
+  
+  <rect x="85" y="228" width="85" height="55" rx="6" fill="#ffffff" filter="url(#shadowSmPipeline)"/>
+  <text x="95" y="245" font-family="system-ui" font-size="9" fill="#0f172a" font-weight="600">Lisa Chen</text>
+  <text x="95" y="258" font-family="system-ui" font-size="8" fill="#64748b">Full Service</text>
+  <rect x="95" y="266" width="40" height="12" rx="3" fill="#dcfce7"/>
+  <text x="115" y="275" font-family="system-ui" font-size="7" fill="#15803d" text-anchor="middle">$5,800</text>
+  
+  <!-- Column 2: Contacted -->
+  <rect x="188" y="135" width="105" height="220" rx="8" fill="#f8fafc"/>
+  <text x="240" y="155" font-family="system-ui" font-size="10" fill="#64748b" font-weight="600" text-anchor="middle">CONTACTED</text>
+  <rect x="198" y="165" width="85" height="55" rx="6" fill="#ffffff" filter="url(#shadowSmPipeline)"/>
+  <text x="208" y="182" font-family="system-ui" font-size="9" fill="#0f172a" font-weight="600">Sarah Williams</text>
+  <text x="208" y="195" font-family="system-ui" font-size="8" fill="#64748b">Consultation</text>
+  <rect x="208" y="203" width="40" height="12" rx="3" fill="#fef3c7"/>
+  <text x="228" y="212" font-family="system-ui" font-size="7" fill="#b45309" text-anchor="middle">$3,200</text>
+  
+  <!-- Column 3: Proposal Sent -->
+  <rect x="301" y="135" width="105" height="220" rx="8" fill="#f8fafc"/>
+  <text x="353" y="155" font-family="system-ui" font-size="10" fill="#64748b" font-weight="600" text-anchor="middle">PROPOSAL</text>
+  <rect x="311" y="165" width="85" height="55" rx="6" fill="#ffffff" filter="url(#shadowSmPipeline)"/>
+  <text x="321" y="182" font-family="system-ui" font-size="9" fill="#0f172a" font-weight="600">Tom Brown</text>
+  <text x="321" y="195" font-family="system-ui" font-size="8" fill="#64748b">Premium Plan</text>
+  <rect x="321" y="203" width="45" height="12" rx="3" fill="#e0e7ff"/>
+  <text x="343" y="212" font-family="system-ui" font-size="7" fill="#4338ca" text-anchor="middle">$12,500</text>
+  
+  <rect x="311" y="228" width="85" height="55" rx="6" fill="#ffffff" filter="url(#shadowSmPipeline)"/>
+  <text x="321" y="245" font-family="system-ui" font-size="9" fill="#0f172a" font-weight="600">Amy Davis</text>
+  <text x="321" y="258" font-family="system-ui" font-size="8" fill="#64748b">Basic Package</text>
+  <rect x="321" y="266" width="40" height="12" rx="3" fill="#e0e7ff"/>
+  <text x="341" y="275" font-family="system-ui" font-size="7" fill="#4338ca" text-anchor="middle">$4,200</text>
+  
+  <!-- Column 4: Closed Won -->
+  <rect x="414" y="135" width="105" height="220" rx="8" fill="#f0fdfa"/>
+  <text x="466" y="155" font-family="system-ui" font-size="10" fill="#0d9488" font-weight="600" text-anchor="middle">CLOSED WON</text>
+  <rect x="424" y="165" width="85" height="55" rx="6" fill="#ffffff" stroke="#0d9488" stroke-width="1" filter="url(#shadowSmPipeline)"/>
+  <text x="434" y="182" font-family="system-ui" font-size="9" fill="#0f172a" font-weight="600">James Wilson</text>
+  <text x="434" y="195" font-family="system-ui" font-size="8" fill="#64748b">Enterprise</text>
+  <rect x="434" y="203" width="45" height="12" rx="3" fill="#0d9488"/>
+  <text x="456" y="212" font-family="system-ui" font-size="7" fill="#ffffff" text-anchor="middle">$18,000</text>
+  <text x="489" y="182" font-family="system-ui" font-size="10" fill="#0d9488">✓</text>
+  
+  <!-- Analytics Card (Floating overlay - bottom right) -->
+  <rect x="320" y="320" width="250" height="150" rx="12" fill="#ffffff" filter="url(#shadowPipeline)"/>
+  <rect x="320" y="320" width="250" height="35" rx="12" fill="#f8fafc"/>
+  <rect x="320" y="343" width="250" height="12" fill="#f8fafc"/>
+  <text x="340" y="343" font-family="system-ui" font-size="11" fill="#0f172a" font-weight="600">Revenue Analytics</text>
+  
+  <!-- Stats Row -->
+  <text x="340" y="380" font-family="system-ui" font-size="9" fill="#64748b">Total Deals</text>
+  <text x="340" y="398" font-family="system-ui" font-size="18" fill="#0f172a" font-weight="700">38</text>
+  
+  <text x="410" y="380" font-family="system-ui" font-size="9" fill="#64748b">Revenue</text>
+  <text x="410" y="398" font-family="system-ui" font-size="18" fill="#0d9488" font-weight="700">$47,200</text>
+  
+  <text x="500" y="380" font-family="system-ui" font-size="9" fill="#64748b">Close Rate</text>
+  <text x="500" y="398" font-family="system-ui" font-size="18" fill="#0f172a" font-weight="700">68%</text>
+  
+  <!-- Mini Chart -->
+  <rect x="340" y="415" width="210" height="40" rx="4" fill="#f8fafc"/>
+  <polyline points="350,445 370,435 390,440 410,425 430,430 450,420 470,415 490,425 510,410 530,418 540,412" 
+            stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="540" cy="412" r="4" fill="#0d9488"/>
+  <text x="540" y="408" font-family="system-ui" font-size="8" fill="#0d9488" text-anchor="middle">↑</text>
+  
+  <!-- Payment Badge (Floating - top right) -->
+  <rect x="480" y="25" width="100" height="45" rx="10" fill="#ffffff" filter="url(#shadowSmPipeline)"/>
+  <circle cx="505" cy="47" r="14" fill="#f0fdfa"/>
+  <text x="505" y="52" font-family="system-ui" font-size="14" fill="#0d9488" text-anchor="middle" font-weight="700">$</text>
+  <text x="530" y="42" font-family="system-ui" font-size="8" fill="#64748b">Payment</text>
+  <text x="530" y="55" font-family="system-ui" font-size="10" fill="#0d9488" font-weight="600">Received</text>
+  
+  <!-- New Appointment Badge (Floating - top) -->
+  <rect x="350" y="10" width="115" height="32" rx="8" fill="#0d9488" filter="url(#shadowSmPipeline)"/>
+  <text x="407" y="30" font-family="system-ui" font-size="10" fill="#ffffff" font-weight="600" text-anchor="middle">📅 New Appointment!</text>
+</svg>

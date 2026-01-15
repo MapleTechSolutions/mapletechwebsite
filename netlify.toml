@@ -1,0 +1,36 @@
+# Netlify configuration file
+[build]
+  # Directory to publish (build output)
+  publish = "dist"
+
+  # Build command
+  command = "npm run build"
+
+# Form notifications with custom subject including submitter name
+[[forms]]
+  name = "contact"
+  
+  [[forms.notification]]
+    recipients = ["sales@mapletech.solutions"]
+    subject = "New Lead: {{name}} - {{company}} ({{industry}})"
+
+# Redirect all requests to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for better performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(copy \"JSK elements\\Smart Lead Capture & Scheduling\\LeadCaptureSection.jsx\" \"src\\components\\sections\\LeadCaptureSection.jsx\")",
+      "Bash(copy \"JSK elements\\unified box\\NurtureLeadsSection.jsx\" \"src\\components\\sections\\NurtureLeadsSection.jsx\")",
+      "Bash(copy \"JSK elements\\sales pipeline\\CloseDealsSection.jsx\" \"src\\components\\sections\\CloseDealsSection.jsx\")",
+      "Bash(copy \"JSK elements\\business growth overview\\ScaleBusinessSection.jsx\" \"src\\components\\sections\\ScaleBusinessSection.jsx\")",
+      "Bash(copy \"JSK elements\\local support\\LocalSupportSection.jsx\" \"src\\components\\sections\\LocalSupportSection.jsx\")",
+      "Bash(python replace_sections.py:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Bash(cat:*)",
+      "Bash(python replace_maple.py:*)",
+      "Bash(node replace_maple.js:*)",
+      "Bash(node remove_floating_elements.cjs:*)",
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(find \"{src\" -type f)",
+      "Bash(rm:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

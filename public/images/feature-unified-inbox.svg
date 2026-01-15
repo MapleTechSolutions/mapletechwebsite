@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="bgGradNurture" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadowNurture" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.1"/>
+    </filter>
+    <filter id="shadowSmNurture" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="500" fill="url(#bgGradNurture)"/>
+  
+  <!-- Main Chat Window -->
+  <rect x="40" y="30" width="520" height="440" rx="16" fill="#ffffff" filter="url(#shadowNurture)"/>
+  
+  <!-- Window Header -->
+  <rect x="40" y="30" width="520" height="50" rx="16" fill="#f8fafc"/>
+  <rect x="40" y="64" width="520" height="16" fill="#f8fafc"/>
+  <circle cx="65" cy="55" r="7" fill="#ef4444"/>
+  <circle cx="88" cy="55" r="7" fill="#eab308"/>
+  <circle cx="111" cy="55" r="7" fill="#22c55e"/>
+  <text x="300" y="60" font-family="system-ui" font-size="12" fill="#0f172a" font-weight="600" text-anchor="middle">Unified Inbox</text>
+  
+  <!-- Left Sidebar - Contact List -->
+  <rect x="40" y="80" width="180" height="390" fill="#f8fafc"/>
+  
+  <!-- Search Bar -->
+  <rect x="52" y="92" width="156" height="32" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="68" y="112" font-family="system-ui" font-size="10" fill="#94a3b8">🔍 Search contacts...</text>
+  
+  <!-- Contact 1 - Active (SMS) -->
+  <rect x="52" y="136" width="156" height="60" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1"/>
+  <circle cx="72" cy="160" r="16" fill="#0d9488"/>
+  <text x="72" y="164" font-family="system-ui" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="600">LM</text>
+  <text x="96" y="152" font-family="system-ui" font-size="10" fill="#0f172a" font-weight="600">Lauren Mitchell</text>
+  <!-- SMS Tag -->
+  <rect x="96" y="157" width="32" height="14" rx="3" fill="#dcfce7"/>
+  <text x="112" y="167" font-family="system-ui" font-size="8" fill="#15803d" text-anchor="middle" font-weight="500">SMS</text>
+  <text x="96" y="183" font-family="system-ui" font-size="9" fill="#64748b">Sounds great! I'm avail...</text>
+  <circle cx="196" cy="148" r="6" fill="#0d9488"/>
+  <text x="196" y="151" font-family="system-ui" font-size="8" fill="#ffffff" text-anchor="middle">2</text>
+  
+  <!-- Contact 2 (Email) -->
+  <rect x="52" y="204" width="156" height="60" rx="8" fill="#ffffff"/>
+  <circle cx="72" cy="228" r="16" fill="#6366f1"/>
+  <text x="72" y="232" font-family="system-ui" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="600">JC</text>
+  <text x="96" y="220" font-family="system-ui" font-size="10" fill="#0f172a" font-weight="600">James Carter</text>
+  <!-- Email Tag -->
+  <rect x="96" y="225" width="36" height="14" rx="3" fill="#e0e7ff"/>
+  <text x="114" y="235" font-family="system-ui" font-size="8" fill="#4338ca" text-anchor="middle" font-weight="500">Email</text>
+  <text x="96" y="251" font-family="system-ui" font-size="9" fill="#64748b">Thanks for the quote!</text>
+  
+  <!-- Contact 3 (Instagram DM) -->
+  <rect x="52" y="272" width="156" height="60" rx="8" fill="#ffffff"/>
+  <circle cx="72" cy="296" r="16" fill="#f59e0b"/>
+  <text x="72" y="300" font-family="system-ui" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="600">SR</text>
+  <text x="96" y="288" font-family="system-ui" font-size="10" fill="#0f172a" font-weight="600">Sarah Reynolds</text>
+  <!-- Instagram Tag -->
+  <rect x="96" y="293" width="58" height="14" rx="3" fill="#fce7f3"/>
+  <text x="125" y="303" font-family="system-ui" font-size="8" fill="#be185d" text-anchor="middle" font-weight="500">Instagram</text>
+  <text x="96" y="319" font-family="system-ui" font-size="9" fill="#64748b">What time works for...</text>
+  
+  <!-- Contact 4 (Facebook DM) -->
+  <rect x="52" y="340" width="156" height="60" rx="8" fill="#ffffff"/>
+  <circle cx="72" cy="364" r="16" fill="#3b82f6"/>
+  <text x="72" y="368" font-family="system-ui" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="600">MB</text>
+  <text x="96" y="356" font-family="system-ui" font-size="10" fill="#0f172a" font-weight="600">Mike Brown</text>
+  <!-- Facebook Tag -->
+  <rect x="96" y="361" width="56" height="14" rx="3" fill="#dbeafe"/>
+  <text x="124" y="371" font-family="system-ui" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="500">Facebook</text>
+  <text x="96" y="387" font-family="system-ui" font-size="9" fill="#64748b">Can you send the...</text>
+  
+  <!-- Contact 5 (WhatsApp) -->
+  <rect x="52" y="408" width="156" height="55" rx="8" fill="#ffffff"/>
+  <circle cx="72" cy="430" r="16" fill="#ec4899"/>
+  <text x="72" y="434" font-family="system-ui" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="600">AT</text>
+  <text x="96" y="422" font-family="system-ui" font-size="10" fill="#0f172a" font-weight="600">Amy Torres</text>
+  <!-- WhatsApp Tag -->
+  <rect x="96" y="427" width="56" height="14" rx="3" fill="#d1fae5"/>
+  <text x="124" y="437" font-family="system-ui" font-size="8" fill="#059669" text-anchor="middle" font-weight="500">WhatsApp</text>
+  <text x="96" y="453" font-family="system-ui" font-size="9" fill="#64748b">Got it, thanks!</text>
+  
+  <!-- Main Chat Area -->
+  <rect x="220" y="80" width="340" height="390" fill="#ffffff"/>
+  
+  <!-- Chat Header -->
+  <rect x="220" y="80" width="340" height="50" fill="#ffffff"/>
+  <line x1="220" y1="130" x2="560" y2="130" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="250" cy="105" r="18" fill="#0d9488"/>
+  <text x="250" y="109" font-family="system-ui" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="600">LM</text>
+  <text x="278" y="98" font-family="system-ui" font-size="12" fill="#0f172a" font-weight="600">Lauren Mitchell</text>
+  <!-- Active SMS Tag in header -->
+  <rect x="278" y="104" width="32" height="14" rx="3" fill="#dcfce7"/>
+  <text x="294" y="114" font-family="system-ui" font-size="8" fill="#15803d" text-anchor="middle" font-weight="500">SMS</text>
+  <circle cx="320" cy="111" r="3" fill="#22c55e"/>
+  
+  <!-- Channel Switch Icons -->
+  <rect x="440" y="90" width="110" height="30" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="455" y="109" font-family="system-ui" font-size="11">💬</text>
+  <text x="478" y="109" font-family="system-ui" font-size="11">📧</text>
+  <text x="501" y="109" font-family="system-ui" font-size="11">📞</text>
+  <text x="524" y="109" font-family="system-ui" font-size="11">⋯</text>
+  
+  <!-- Outgoing Message 1 -->
+  <rect x="300" y="145" width="200" height="65" rx="12" fill="#0d9488"/>
+  <text x="315" y="167" font-family="system-ui" font-size="11" fill="#ffffff">Hi Lauren,</text>
+  <text x="315" y="183" font-family="system-ui" font-size="11" fill="#ffffff">Saw that you were interested in our</text>
+  <text x="315" y="199" font-family="system-ui" font-size="11" fill="#ffffff">Summer Special! Are you available?</text>
+  <text x="485" y="207" font-family="system-ui" font-size="8" fill="#99f6e4">10:32 AM ✓✓</text>
+  
+  <!-- Incoming Message -->
+  <rect x="235" y="225" width="180" height="45" rx="12" fill="#f1f5f9"/>
+  <text x="250" y="247" font-family="system-ui" font-size="11" fill="#0f172a">Sounds great! I'm available</text>
+  <text x="250" y="263" font-family="system-ui" font-size="11" fill="#0f172a">now. 😊</text>
+  <text x="400" y="267" font-family="system-ui" font-size="8" fill="#94a3b8">10:34 AM</text>
+  
+  <!-- Outgoing Message 2 -->
+  <rect x="320" y="285" width="180" height="45" rx="12" fill="#0d9488"/>
+  <text x="335" y="307" font-family="system-ui" font-size="11" fill="#ffffff">Perfect! I'll call you in 5</text>
+  <text x="335" y="323" font-family="system-ui" font-size="11" fill="#ffffff">minutes. 📞</text>
+  <text x="485" y="327" font-family="system-ui" font-size="8" fill="#99f6e4">10:35 AM ✓✓</text>
+  
+  <!-- Typing Indicator -->
+  <rect x="235" y="345" width="80" height="30" rx="12" fill="#f1f5f9"/>
+  <circle cx="257" cy="360" r="4" fill="#94a3b8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="273" cy="360" r="4" fill="#94a3b8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" begin="0.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="289" cy="360" r="4" fill="#94a3b8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Message Input -->
+  <rect x="230" y="395" width="320" height="45" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="250" y="422" font-family="system-ui" font-size="11" fill="#94a3b8">Type a message...</text>
+  <circle cx="520" cy="417" r="16" fill="#0d9488"/>
+  <text x="520" y="422" font-family="system-ui" font-size="14" fill="#ffffff" text-anchor="middle">→</text>
+  
+  <!-- "All channels in one place" label -->
+  <rect x="230" y="448" width="150" height="18" rx="4" fill="#f0fdfa" stroke="#0d9488" stroke-width="1"/>
+  <text x="305" y="460" font-family="system-ui" font-size="9" fill="#0d9488" text-anchor="middle" font-weight="500">✨ All channels in one inbox</text>
+</svg>
