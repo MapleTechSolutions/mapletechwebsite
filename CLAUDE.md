@@ -7,21 +7,34 @@ Marketing website for Maple Tech (mapletech.solutions). React 18 SPA deployed on
 
 Planning docs: `.planning/`
 
-## GSD Workflow
+## Role Split
 
-This project uses the Get Shit Done (GSD) structured workflow.
+**Claude = Planner + Auditor. Codex = Executor. Human = Smoke Tester.**
+
+| Step | Who | Tool |
+|------|-----|------|
+| Write phase plan | Claude | `/gsd-plan-phase N` → `.planning/phases/phaseN/PLAN.md` |
+| Execute plan | Codex | Reads PLAN.md, implements, commits |
+| Verify work | Claude | Audit session — checks code against success criteria |
+| Fix issues | Codex | Reads AUDIT.md, applies fixes |
+| Smoke test | Human | Manual check on dev server or Netlify preview |
+
+Status lifecycle: `PLANNED → EXECUTING → READY FOR AUDIT → READY FOR SMOKE TEST → COMPLETE`
+
+All prompts for each role: `.planning/WORKFLOW_PROMPTS.md`
+
+## GSD Workflow
 
 **Current phase:** Phase 1 — Clean & Fix
 **Roadmap:** `.planning/ROADMAP.md`
 **Requirements:** `.planning/REQUIREMENTS.md`
 **Project context:** `.planning/PROJECT.md`
+**State:** `.planning/STATE.md`
 
-### Phase Commands
+### Planning Commands (Claude only)
 
 ```
-/gsd-discuss-phase 1   # Gather context and clarify approach for a phase
-/gsd-plan-phase 1      # Create detailed execution plan
-/gsd-execute-phase 1   # Execute all plans in a phase
+/gsd-plan-phase 1      # Write PLAN.md for Phase 1 — Claude produces, Codex executes
 /gsd-progress          # Check current status
 ```
 
@@ -29,9 +42,7 @@ This project uses the Get Shit Done (GSD) structured workflow.
 
 - **Mode:** YOLO (auto-approve)
 - **Granularity:** Coarse (3 phases)
-- **Research:** Enabled
-- **Plan Check:** Enabled
-- **Verifier:** Enabled
+- **Executor:** Codex (reads .planning/phases/phaseN/PLAN.md)
 
 ## Tech Stack
 

@@ -7,12 +7,21 @@ See: .planning/PROJECT.md (updated 2026-04-18)
 **Core value:** A visitor lands, understands what Maple Tech does, trusts the work, and contacts the business — every other concern is secondary to that conversion path working reliably.
 **Current focus:** Phase 1 — Clean & Fix
 
+## Workflow Model
+
+**Claude = Planner + Auditor | Codex = Executor | Human = Smoke Tester**
+
+Status lifecycle: `PLANNED → EXECUTING → READY FOR AUDIT → READY FOR SMOKE TEST → COMPLETE`
+
+Prompts for each step: `.planning/WORKFLOW_PROMPTS.md`
+Phase plans live in: `.planning/phases/phaseN/PLAN.md`
+
 ## Current Position
 
 Phase: 1 of 3 (Clean & Fix)
 Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-04-18 — Roadmap created, Phase 1 ready to plan
+Status: **NOT STARTED** (Claude needs to plan Phase 1 first)
+Last activity: 2026-04-18 — Planning foundation set, Codex workflow aligned
 
 Progress: [░░░░░░░░░░] 0%
 
