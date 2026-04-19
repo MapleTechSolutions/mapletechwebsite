@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-04-18)
 
 **Core value:** A visitor lands, understands what Maple Tech does, trusts the work, and contacts the business — every other concern is secondary to that conversion path working reliably.
-**Current focus:** Phase 1 — Clean & Fix
+**Current focus:** Phase 2 — Infrastructure & Legal
 
 ## Workflow Model
 
@@ -18,12 +18,12 @@ Phase plans live in: `.planning/phases/phaseN/PLAN.md`
 
 ## Current Position
 
-Phase: 1 of 3 (Clean & Fix)
-Plan: 4 of 4 in current phase
-Status: **COMPLETE** (Phase 1 UAT passed 6/6)
-Last activity: 2026-04-18 — Phase 1 UAT complete, all tests passed
+Phase: 2 of 3 (Infrastructure & Legal)
+Plan: 0 of TBD in current phase
+Status: **Context gathered — ready to plan**
+Last activity: 2026-04-19 — Phase 2 context captured via discuss-phase
 
-Progress: [██████████] 100%
+Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
@@ -73,6 +73,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-18
-Stopped at: Completed 01-04-PLAN.md
-Resume file: .planning/phases/01-clean-and-fix/01-CONTEXT.md
+Last session: 2026-04-19
+Stopped at: Phase 2 context gathered
+Resume file: .planning/phases/02-infrastructure-and-legal/02-CONTEXT.md
