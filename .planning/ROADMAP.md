@@ -28,7 +28,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. `Automator.jsx` is split into focused section components — no single component file exceeds ~300 lines
   4. The missing hero image no longer causes a broken image placeholder — either the file is present or the reference is removed
   5. The footer copyright year updates automatically — it reads the current year, not a hardcoded value
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Delete MapleTechPremium.jsx + dynamic footer copyright
+- [ ] 01-02-PLAN.md — Extract ContactForm to ContactFormSection.jsx (prerequisite for Contact.jsx deletion)
+- [ ] 01-03-PLAN.md — Delete Contact.jsx, remove /contact route, fix all navigation bugs, gradient hero, hash scroll
+- [ ] 01-04-PLAN.md — Split Automator.jsx into 7 extracted section components
 
 ### Phase 2: Infrastructure & Legal
 **Goal**: The site handles errors gracefully, unknown URLs show a proper 404 page, legal links point to real pages, and accessibility animations respect OS preferences
@@ -60,6 +66,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Clean & Fix | 0/TBD | Not started | - |
+| 1. Clean & Fix | 0/4 | PLANNED | - |
 | 2. Infrastructure & Legal | 0/TBD | Not started | - |
 | 3. Integrations Showcase | 0/TBD | Not started | - |
