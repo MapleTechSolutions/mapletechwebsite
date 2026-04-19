@@ -9,6 +9,8 @@ const Platform = lazy(() => import('./pages/Platform'));
 const WhyUs = lazy(() => import('./pages/WhyUs'));
 const Automator = lazy(() => import('./pages/Automator'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 // Import Shared Components
 import {
@@ -200,8 +202,12 @@ function Footer() {
         <div className="mt-8 pt-8 border-t border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
           <p>© {new Date().getFullYear()} Maple Tech Solutions. All rights reserved.</p>
           <div className="flex gap-6">
-            <motion.a href="#" className="hover:text-slate-300 transition-colors" whileHover={{ scale: 1.08 }}>Privacy Policy</motion.a>
-            <motion.a href="#" className="hover:text-slate-300 transition-colors" whileHover={{ scale: 1.08 }}>Terms of Service</motion.a>
+            <motion.div whileHover={{ scale: 1.08 }}>
+              <Link to="/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.08 }}>
+              <Link to="/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -237,8 +243,8 @@ function AppContent() {
             <Route path="/platform" element={<Platform />} />
             <Route path="/automator" element={<Automator />} />
             <Route path="/why-us" element={<WhyUs />} />
-            <Route path="/privacy" element={<NotFound />} />
-            <Route path="/terms" element={<NotFound />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
