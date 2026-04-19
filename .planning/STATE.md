@@ -20,8 +20,8 @@ Phase plans live in: `.planning/phases/phaseN/PLAN.md`
 
 Phase: 1 of 3 (Clean & Fix)
 Plan: 4 of 4 in current phase
-Status: **READY FOR AUDIT** (Phase 1 execution complete)
-Last activity: 2026-04-18 — Phase 1 execution complete
+Status: **COMPLETE** (Phase 1 UAT passed 6/6)
+Last activity: 2026-04-18 — Phase 1 UAT complete, all tests passed
 
 Progress: [██████████] 100%
 

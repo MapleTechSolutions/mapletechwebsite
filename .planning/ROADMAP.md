@@ -12,7 +12,7 @@ The codebase is functional but was built organically — dead code, broken navig
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Clean & Fix** - Remove dead code, fix navigation bugs, split oversized files, fix the broken image and hook ordering bug
+- [x] **Phase 1: Clean & Fix** - Remove dead code, fix navigation bugs, split oversized files, fix the broken image and hook ordering bug
 - [ ] **Phase 2: Infrastructure & Legal** - Add 404 route, error boundary, code splitting, privacy policy, terms of service, and reduced-motion support
 - [ ] **Phase 3: Integrations Showcase** - Build the client integrations showcase section as social proof to strengthen the conversion path
 
@@ -66,6 +66,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Clean & Fix | 0/4 | PLANNED | - |
+| 1. Clean & Fix | 4/4 | COMPLETE | 2026-04-18 |
 | 2. Infrastructure & Legal | 0/TBD | Not started | - |
 | 3. Integrations Showcase | 0/TBD | Not started | - |
