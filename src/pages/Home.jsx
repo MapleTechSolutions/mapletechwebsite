@@ -174,7 +174,7 @@ export default function Home() {
                 className="text-lg md:text-xl text-slate-500 mb-10 max-w-xl mx-auto lg:mx-0"
                 variants={fadeInUp}
               >
-                We bridge the gap between the software you have and the automation you need. Keep the tools you love, and we'll make them work together.
+                We build custom integrations and CRM systems for Canadian service businesses — eliminating the manual data entry and copy-pasting that eats your day.
               </motion.p>
 
               <motion.div
@@ -188,7 +188,7 @@ export default function Home() {
                   </motion.span>
                 </PremiumButton>
                 <PremiumButton onClick={() => scrollTo('pivot')} variant="secondary">
-                  See How It Works
+                  See Our Solutions
                 </PremiumButton>
               </motion.div>
             </motion.div>
@@ -471,9 +471,9 @@ export default function Home() {
                   <span className="inline-flex px-3 py-1 bg-orange-500/20 rounded-full text-xs font-semibold text-orange-400 uppercase tracking-wider mb-2">
                     Add to either path
                   </span>
-                  <h3 className="text-2xl font-bold text-white mb-2">Hire Your First AI Employee</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">Your Business, Running 24/7</h3>
                   <p className="text-slate-400">
-                    Your digital workforce that never sleeps. See what they can do for your business.
+                    Add AI automation to any package — phone answering, automated follow-ups, and instant quote generation without adding headcount.
                   </p>
                 </div>
 
@@ -613,7 +613,7 @@ export default function Home() {
               Built for Service Businesses
             </motion.h2>
             <motion.p className="text-slate-500" variants={fadeInUp}>
-              We specialize in industries where manual data entry eats up your day.
+              If your team is drowning in copy-pasting between apps, we fix that.
             </motion.p>
           </motion.div>
 
