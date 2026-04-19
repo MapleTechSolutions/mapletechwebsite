@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { PremiumButton } from '../components/shared/SharedComponents';
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-6 pt-24">
+      <Helmet>
+        <title>Page Not Found | Maple Tech Solutions</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
+
       <div className="text-center max-w-lg">
         <motion.div
           className="w-24 h-24 mx-auto mb-8 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center"

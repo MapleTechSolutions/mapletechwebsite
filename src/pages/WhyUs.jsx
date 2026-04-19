@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, ShieldCheck, Lock, Server, MapPin } from 'lucide-react';
 import {
   PremiumButton,
@@ -36,6 +37,12 @@ export default function WhyUs() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <Helmet>
+        <title>Why Choose Maple Tech? | Local Saskatchewan Tech Partner</title>
+        <meta name="description" content="See why service businesses across Saskatchewan trust Maple Tech for custom software. Transparent pricing, local support, and real results." />
+        <link rel="canonical" href="https://mapletech.solutions/why-us" />
+      </Helmet>
+
       {/* ========== WHY US HEADER ========== */}
       <section className="pt-32 pb-16 relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">

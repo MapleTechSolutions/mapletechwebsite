@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight, ArrowLeft, Bot, Phone, MessageSquare, FileText, Star,
   Shield, TrendingUp, Clock, CheckCircle, AlertTriangle, Sparkles
@@ -48,6 +49,11 @@ export default function Automator() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">
+      <Helmet>
+        <title>AI Workforce & Automation | Maple Tech Solutions</title>
+        <meta name="description" content="Hire your first AI employee — 24/7 phone answering, automated follow-ups, and instant quote generation for Canadian service businesses." />
+        <link rel="canonical" href="https://mapletech.solutions/automator" />
+      </Helmet>
 
       {/* ========== HERO SECTION ========== */}
       <section className="min-h-screen flex items-center justify-center pt-24 pb-16 relative overflow-hidden">

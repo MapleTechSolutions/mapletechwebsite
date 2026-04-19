@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Sparkles, Phone, Inbox, Zap, Shield, Cpu, Globe, Wifi, CheckCircle, Star } from 'lucide-react';
 import {
   PremiumButton,
@@ -26,6 +27,12 @@ export default function Platform() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <Helmet>
+        <title>Custom CRM Development | Maple Tech Solutions</title>
+        <meta name="description" content="We build custom CRM systems tailored to your exact workflow — no bloat, no generic software. Purpose-built for Canadian service businesses." />
+        <link rel="canonical" href="https://mapletech.solutions/platform" />
+      </Helmet>
+
       {/* ========== PLATFORM HEADER ========== */}
       <section className="pt-32 pb-16 relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">

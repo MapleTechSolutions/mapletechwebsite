@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight, GitMerge, LayoutDashboard, Bot, Check,
   Wrench, HeartPulse, ShoppingBag, GraduationCap, Building2,
@@ -107,6 +108,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <Helmet>
+        <title>Maple Tech Solutions | Custom Integrations & CRM for Canadian Businesses</title>
+        <meta name="description" content="We build custom integrations and CRM systems for Saskatchewan service businesses — eliminating manual data entry and connecting your existing tools." />
+        <link rel="canonical" href="https://mapletech.solutions/" />
+      </Helmet>
+
       {/* ========== HERO SECTION ========== */}
       <section id="home" className="min-h-screen flex items-center pt-24 pb-16 relative overflow-hidden">
         {/* Floating Orbs Background */}
