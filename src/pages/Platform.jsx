@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Phone, Inbox, Zap, Shield, Cpu, Globe, Wifi, CheckCircle, Star } from 'lucide-react';
 import {
@@ -22,6 +22,8 @@ import MarketingAutomationSection from '../components/sections/MarketingAutomati
 import SmartSocialPlannerSection from '../components/sections/SmartSocialPlannerSection';
 
 export default function Platform() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* ========== PLATFORM HEADER ========== */}
@@ -252,7 +254,7 @@ export default function Platform() {
                   <ArrowRight size={20} />
                 </PremiumButton>
               </Link>
-              <PremiumButton onClick={() => window.location.href = '/why-us#contact'} variant="secondary" className="text-lg px-10 py-5">
+              <PremiumButton onClick={() => navigate('/why-us#contact')} variant="secondary" className="text-lg px-10 py-5">
                 Schedule a Consultation
               </PremiumButton>
             </div>

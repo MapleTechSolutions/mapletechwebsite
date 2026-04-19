@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -7,7 +7,6 @@ import { Menu, X } from 'lucide-react';
 import Home from './pages/Home';
 import Platform from './pages/Platform';
 import WhyUs from './pages/WhyUs';
-import Contact from './pages/Contact';
 import Automator from './pages/Automator';
 
 // Import Shared Components
@@ -25,6 +24,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -44,7 +44,7 @@ function Navbar() {
   const scrollToContact = () => {
     // If we're on a different page, navigate to Why Us and then scroll
     if (location.pathname !== '/why-us') {
-      window.location.href = '/why-us#contact';
+      navigate('/why-us#contact');
     } else {
       const element = document.getElementById('contact');
       if (element) {
@@ -196,7 +196,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-          <p>© 2025 Maple Tech Solutions. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Maple Tech Solutions. All rights reserved.</p>
           <div className="flex gap-6">
             <motion.a href="#" className="hover:text-slate-300 transition-colors" whileHover={{ scale: 1.08 }}>Privacy Policy</motion.a>
             <motion.a href="#" className="hover:text-slate-300 transition-colors" whileHover={{ scale: 1.08 }}>Terms of Service</motion.a>
@@ -229,7 +229,6 @@ function AppContent() {
         <Route path="/platform" element={<Platform />} />
         <Route path="/automator" element={<Automator />} />
         <Route path="/why-us" element={<WhyUs />} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       {/* ========== FOOTER ========== */}

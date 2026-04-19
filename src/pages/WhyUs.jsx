@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Lock, Server, MapPin } from 'lucide-react';
 import {
@@ -14,7 +14,7 @@ import {
 // Import Section Components
 import ComparisonTableSection from '../components/sections/ComparisonTableSection';
 import LocalSupportSection from '../components/sections/LocalSupportSection';
-import { ContactForm } from './Contact';
+import { ContactForm } from '../components/sections/ContactFormSection';
 
 export default function WhyUs() {
   const scrollTo = (id) => {
@@ -23,6 +23,13 @@ export default function WhyUs() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    if (window.location.hash === '#contact') {
+      const el = document.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -59,7 +66,7 @@ export default function WhyUs() {
                 See the Comparison
                 <ArrowRight size={18} />
               </PremiumButton>
-              <PremiumButton onClick={() => window.location.href = '/why-us#contact'} variant="secondary">
+              <PremiumButton onClick={() => scrollTo('contact')} variant="secondary">
                 Get Started
               </PremiumButton>
             </div>
@@ -84,8 +91,7 @@ export default function WhyUs() {
       {/* ========== THE LOCAL ADVANTAGE (Regina Skyline) ========== */}
       <AnimatedSection id="local-advantage" className="relative py-24 overflow-hidden">
         <motion.div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/prairie-hero.jpeg")' }}
+          className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900"
           initial={{ scale: 1.15 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
@@ -198,7 +204,7 @@ export default function WhyUs() {
             viewport={{ once: true }}
             transition={{ delay: 0.24 }}
           >
-            <PremiumButton onClick={() => { window.location.href = '/why-us#contact'; }} className="text-lg px-10 py-5">
+            <PremiumButton onClick={() => { scrollTo('contact'); }} className="text-lg px-10 py-5">
               Book Your Free Consultation
               <motion.span animate={{ x: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                 <ArrowRight size={20} />

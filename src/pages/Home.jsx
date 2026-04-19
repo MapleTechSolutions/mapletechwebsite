@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import {
   ArrowRight, GitMerge, LayoutDashboard, Bot, Check,
@@ -93,6 +93,7 @@ const FloatingOrbsBackground = ({ scrollProgress, mouseX, mouseY }) => {
 };
 
 export default function Home() {
+  const navigate = useNavigate();
   const { scrollY, scrollYProgress } = useScroll();
 
   // Mouse position for parallax
@@ -196,7 +197,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                 variants={fadeInUp}
               >
-                <PremiumButton onClick={() => window.location.href = '/why-us#contact'}>
+                <PremiumButton onClick={() => navigate('/why-us#contact')}>
                   Book a Free Consultation
                   <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                     <ArrowRight size={18} />

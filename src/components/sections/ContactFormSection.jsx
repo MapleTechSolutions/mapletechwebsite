@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, AlertCircle, Sparkles, Send, User, Mail, Phone, Building2, Briefcase, Target, Search, ArrowRight } from 'lucide-react';
-import { fadeInUp, scaleIn, cinematicStagger, springConfigs } from '../components/shared/SharedComponents';
+import { CheckCircle2, AlertCircle, Sparkles, Send, User, Mail, Phone, Building2, Briefcase, ArrowRight } from 'lucide-react';
+import { springConfigs } from '../shared/SharedComponents';
 
 function encode(data) {
   return Object.keys(data)
@@ -41,7 +41,7 @@ export function ContactForm({ compact = false }) {
       utm_source: params.get('utm_source') || '',
       utm_medium: params.get('utm_medium') || '',
       utm_campaign: params.get('utm_campaign') || '',
-      page_url: window.location.href,
+      page_url: window.location.toString(),
       referrer: document.referrer || ''
     }));
   }, []);
@@ -671,8 +671,4 @@ export function ContactForm({ compact = false }) {
       </div>
     </div>
   );
-}
-
-export default function Contact() {
-  return <ContactForm compact={false} />;
 }
