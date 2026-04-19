@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Lock, Server, MapPin } from 'lucide-react';
 import {
@@ -17,6 +18,8 @@ import LocalSupportSection from '../components/sections/LocalSupportSection';
 import { ContactForm } from '../components/sections/ContactFormSection';
 
 export default function WhyUs() {
+  const { hash } = useLocation();
+
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -25,11 +28,11 @@ export default function WhyUs() {
   };
 
   useEffect(() => {
-    if (window.location.hash === '#contact') {
+    if (hash === '#contact') {
       const el = document.getElementById('contact');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
-  }, []);
+  }, [hash]);
 
   return (
     <div className="min-h-screen bg-slate-50">

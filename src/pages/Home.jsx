@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import {
@@ -18,32 +18,9 @@ import {
 } from '../components/shared/SharedComponents';
 
 // ============================================
-// HERO MAPLE LEAF CLUSTER
-// ============================================
-const HeroMapleLeafCluster = ({ scrollProgress, mouseX, mouseY }) => {
-  const clusterY = useTransform(scrollProgress, [0, 0.3], [0, 80]);
-  const clusterScale = useTransform(scrollProgress, [0, 0.3], [1, 0.9]);
-  const clusterOpacity = useTransform(scrollProgress, [0, 0.3], [1, 0]);
-
-  // Mouse parallax for central leaf
-  const leafX = useTransform(mouseX, [0, 1], [-20, 20]);
-  const leafY = useTransform(mouseY, [0, 1], [-20, 20]);
-  const smoothLeafX = useSpring(leafX, springConfigs.float);
-  const smoothLeafY = useSpring(leafY, springConfigs.float);
-
-  return (
-    <motion.div
-      className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
-      style={{ y: clusterY, scale: clusterScale, opacity: clusterOpacity }}
-    >
-    </motion.div>
-  );
-};
-
-// ============================================
 // FLOATING ANIMATED ORBS BACKGROUND
 // ============================================
-const FloatingOrbsBackground = ({ scrollProgress, mouseX, mouseY }) => {
+const FloatingOrbsBackground = () => {
   const orbs = [
     { id: 1, x: 10, y: 20, size: 200, color: 'cyan', delay: 0, duration: 8 },
     { id: 2, x: 80, y: 30, size: 150, color: 'green', delay: 0.3, duration: 9 },

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { motion, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useTransform, useSpring, useInView, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 
 // ============================================
@@ -140,6 +140,7 @@ export const cinematicStagger = {
 // ANIMATED GRADIENT MESH (Enhanced)
 // ============================================
 export const GradientMeshBackground = ({ scrollProgress }) => {
+  const prefersReducedMotion = useReducedMotion();
   const meshX = useTransform(scrollProgress, [0, 1], [0, 150]);
   const meshY = useTransform(scrollProgress, [0, 1], [0, 80]);
   const meshRotate = useTransform(scrollProgress, [0, 1], [0, 15]);
@@ -157,7 +158,7 @@ export const GradientMeshBackground = ({ scrollProgress }) => {
         <motion.div
           className="absolute top-1/4 left-1/4 w-[700px] h-[700px] rounded-full blur-3xl"
           style={{ background: 'radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%)' }}
-          animate={{
+          animate={prefersReducedMotion ? {} : {
             scale: [1, 1.3, 1],
             x: [0, 120, 0],
             y: [0, 60, 0],
@@ -169,7 +170,7 @@ export const GradientMeshBackground = ({ scrollProgress }) => {
         <motion.div
           className="absolute top-1/2 right-1/4 w-[550px] h-[550px] rounded-full blur-3xl"
           style={{ background: 'radial-gradient(circle, rgba(34,197,94,0.10) 0%, transparent 70%)' }}
-          animate={{
+          animate={prefersReducedMotion ? {} : {
             scale: [1.2, 1, 1.2],
             x: [0, -100, 0],
             y: [0, 100, 0],
@@ -181,7 +182,7 @@ export const GradientMeshBackground = ({ scrollProgress }) => {
         <motion.div
           className="absolute bottom-1/4 left-1/3 w-[500px] h-[500px] rounded-full blur-3xl"
           style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)' }}
-          animate={{
+          animate={prefersReducedMotion ? {} : {
             scale: [1, 1.4, 1],
             x: [0, 80, 0],
             y: [0, -60, 0],
@@ -197,6 +198,7 @@ export const GradientMeshBackground = ({ scrollProgress }) => {
 // ANIMATED GRID WITH MAPLE LEAF NODES
 // ============================================
 export const AnimatedGridBackground = ({ scrollProgress }) => {
+  const prefersReducedMotion = useReducedMotion();
   const gridY = useTransform(scrollProgress, [0, 1], [0, 250]);
   const gridOpacity = useTransform(scrollProgress, [0, 0.5, 1], [0.25, 0.4, 0.25]);
   const smoothGridY = useSpring(gridY, springConfigs.gentle);
@@ -215,7 +217,7 @@ export const AnimatedGridBackground = ({ scrollProgress }) => {
             left: `${(i + 1) * 8}%`,
             background: 'linear-gradient(180deg, transparent 0%, rgba(14, 165, 233, 0.08) 50%, transparent 100%)',
           }}
-          animate={{
+          animate={prefersReducedMotion ? {} : {
             opacity: [0.1, 0.25, 0.1],
             scaleY: [0.85, 1, 0.85],
           }}
@@ -236,7 +238,7 @@ export const AnimatedGridBackground = ({ scrollProgress }) => {
             top: `${(i + 1) * 10}%`,
             background: 'linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.08) 50%, transparent 100%)',
           }}
-          animate={{
+          animate={prefersReducedMotion ? {} : {
             opacity: [0.1, 0.2, 0.1],
             scaleX: [0.9, 1, 0.9],
           }}
@@ -560,3 +562,46 @@ export const AnimatedSection = ({ children, className = "", id = "" }) => {
     </motion.section>
   );
 };
+
+// ============================================
+// ERROR BOUNDARY
+// ============================================
+export class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error('ErrorBoundary caught:', error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-slate-900 flex items-center justify-center px-6">
+          <div className="text-center max-w-md">
+            <div className="w-20 h-20 mx-auto mb-6 bg-slate-800 rounded-2xl flex items-center justify-center">
+              <img src="/logo.png" alt="Maple Tech Solutions" className="h-12 w-auto object-contain" />
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-3">Something went wrong</h2>
+            <p className="text-slate-400 mb-8">
+              An unexpected error occurred. Please refresh the page to try again.
+            </p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-white font-semibold rounded-xl transition-colors duration-200"
+            >
+              Refresh Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}

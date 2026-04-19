@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 // Import Pages
-import Home from './pages/Home';
-import Platform from './pages/Platform';
-import WhyUs from './pages/WhyUs';
-import Automator from './pages/Automator';
+const Home = lazy(() => import('./pages/Home'));
+const Platform = lazy(() => import('./pages/Platform'));
+const WhyUs = lazy(() => import('./pages/WhyUs'));
+const Automator = lazy(() => import('./pages/Automator'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Import Shared Components
 import {
   PremiumButton,
   GradientMeshBackground,
   AnimatedGridBackground,
-  springConfigs
+  springConfigs,
+  ErrorBoundary,
 } from './components/shared/SharedComponents';
 
 // ============================================
@@ -28,7 +30,7 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -224,12 +226,23 @@ function AppContent() {
       <Navbar />
 
       {/* ========== ROUTES ========== */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/platform" element={<Platform />} />
-        <Route path="/automator" element={<Automator />} />
-        <Route path="/why-us" element={<WhyUs />} />
-      </Routes>
+      <ErrorBoundary>
+        <Suspense fallback={
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="w-10 h-10 border-4 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin" />
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/platform" element={<Platform />} />
+            <Route path="/automator" element={<Automator />} />
+            <Route path="/why-us" element={<WhyUs />} />
+            <Route path="/privacy" element={<NotFound />} />
+            <Route path="/terms" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
 
       {/* ========== FOOTER ========== */}
       <Footer />
