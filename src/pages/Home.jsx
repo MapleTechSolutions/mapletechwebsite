@@ -148,21 +148,21 @@ export default function Home() {
                 variants={fadeInUp}
               >
                 <motion.span
-                  className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent inline-block"
+                  className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent inline-flex"
                   whileHover={{ scale: 1.03, rotate: -1 }}
                   transition={{ type: "spring", ...springConfigs.bouncy }}
                 >
                   Seamless Systems.
                 </motion.span>{' '}
                 <motion.span
-                  className="bg-gradient-to-r from-green-500 to-green-400 bg-clip-text text-transparent inline-block"
+                  className="bg-gradient-to-r from-green-500 to-green-400 bg-clip-text text-transparent inline-flex"
                   whileHover={{ scale: 1.03, rotate: 1 }}
                   transition={{ type: "spring", ...springConfigs.bouncy }}
                 >
                   Custom CRMs.
                 </motion.span>{' '}
                 <motion.span
-                  className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent inline-block"
+                  className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent inline-flex"
                   whileHover={{ scale: 1.03, rotate: -1 }}
                   transition={{ type: "spring", ...springConfigs.bouncy }}
                 >
@@ -310,7 +310,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <motion.span
-              className="inline-block px-4 py-1.5 bg-white/80 backdrop-blur-sm rounded-full text-xs font-semibold text-cyan-600 uppercase tracking-wider mb-4 shadow-lg"
+              className="inline-flex px-4 py-1.5 bg-white/80 backdrop-blur-sm rounded-full text-xs font-semibold text-cyan-600 uppercase tracking-wider mb-4 shadow-lg"
               variants={scaleIn}
             >
               Two Paths, One Goal
@@ -349,7 +349,7 @@ export default function Home() {
                 <GitMerge size={32} className="text-cyan-500" />
               </motion.div>
 
-              <span className="inline-block px-3 py-1 bg-cyan-500/10 rounded-full text-xs font-semibold text-cyan-600 uppercase tracking-wider mb-4">
+              <span className="inline-flex px-3 py-1 bg-cyan-500/10 rounded-full text-xs font-semibold text-cyan-600 uppercase tracking-wider mb-4">
                 Option 1
               </span>
 
@@ -400,7 +400,7 @@ export default function Home() {
                 <LayoutDashboard size={32} className="text-orange-500" />
               </motion.div>
 
-              <span className="inline-block px-3 py-1 bg-orange-500/10 rounded-full text-xs font-semibold text-orange-600 uppercase tracking-wider mb-4">
+              <span className="inline-flex px-3 py-1 bg-orange-500/10 rounded-full text-xs font-semibold text-orange-600 uppercase tracking-wider mb-4">
                 Option 2
               </span>
 
@@ -468,7 +468,7 @@ export default function Home() {
                 </motion.div>
 
                 <div className="flex-1 text-center md:text-left">
-                  <span className="inline-block px-3 py-1 bg-orange-500/20 rounded-full text-xs font-semibold text-orange-400 uppercase tracking-wider mb-2">
+                  <span className="inline-flex px-3 py-1 bg-orange-500/20 rounded-full text-xs font-semibold text-orange-400 uppercase tracking-wider mb-2">
                     Add to either path
                   </span>
                   <h3 className="text-2xl font-bold text-white mb-2">Hire Your First AI Employee</h3>
@@ -477,111 +477,11 @@ export default function Home() {
                   </p>
                 </div>
 
-                <Link to="/automator" className="flex-shrink-0" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                  <div className="flex flex-col items-center gap-3">
-                    <motion.div
-                      className="relative"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: false, amount: 0.5 }}
-                      transition={{ duration: 0.6 }}
-                      animate={{
-                        boxShadow: [
-                          "0 0 20px rgba(249, 115, 22, 0.3)",
-                          "0 0 40px rgba(249, 115, 22, 0.5)",
-                          "0 0 20px rgba(249, 115, 22, 0.3)",
-                        ]
-                      }}
-                      style={{ transitionDuration: "2s", transitionTimingFunction: "ease-in-out" }}
-                    >
-                      <PremiumButton className="relative group px-8 py-4">
-                        <span className="relative z-10 flex flex-col items-center gap-2">
-                          <div className="relative w-12 h-12 flex items-center justify-center">
-                            <motion.svg
-                              width="40"
-                              height="40"
-                              viewBox="-4 -8 32 32"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="absolute"
-                              initial={{ opacity: 0 }}
-                              whileInView={{ opacity: 1 }}
-                              viewport={{ once: false, amount: 0.5 }}
-                            >
-                              {/* Lock body - stays in place */}
-                              <rect
-                                x="3"
-                                y="11"
-                                width="18"
-                                height="11"
-                                rx="2"
-                                ry="2"
-                              />
-                            </motion.svg>
-
-                            {/* Lock shackle - animated separately */}
-                            <motion.svg
-                              width="40"
-                              height="40"
-                              viewBox="-4 -8 32 32"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="absolute"
-                              initial={{ opacity: 0 }}
-                              whileInView={{
-                                opacity: 1,
-                                y: [0, 0, -3, -12, -12, -3, 0],
-                                x: [0, 0, 1, 4, 4, 1, 0],
-                                rotate: [0, 0, -5, -30, -30, -5, 0],
-                              }}
-                              viewport={{ once: false, amount: 0.5 }}
-                              transition={{
-                                opacity: { duration: 0.3 },
-                                y: {
-                                  duration: 4,
-                                  repeat: Infinity,
-                                  times: [0, 0.3, 0.4, 0.5, 0.6, 0.7, 1],
-                                  ease: "easeInOut"
-                                },
-                                x: {
-                                  duration: 4,
-                                  repeat: Infinity,
-                                  times: [0, 0.3, 0.4, 0.5, 0.6, 0.7, 1],
-                                  ease: "easeInOut"
-                                },
-                                rotate: {
-                                  duration: 4,
-                                  repeat: Infinity,
-                                  times: [0, 0.3, 0.4, 0.5, 0.6, 0.7, 1],
-                                  ease: "easeInOut"
-                                }
-                              }}
-                            >
-                              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                            </motion.svg>
-                          </div>
-                          <span className="text-lg font-bold tracking-wide">
-                            WHAT IS AI EMPLOYEE?
-                          </span>
-                        </span>
-                      </PremiumButton>
-                    </motion.div>
-                    <motion.p
-                      className="text-slate-300 text-sm font-medium"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: [0.6, 1, 0.6] }}
-                      viewport={{ once: false, amount: 0.5 }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      Click here to unlock the secret
-                    </motion.p>
-                  </div>
+                <Link to="/automator" className="flex-shrink-0">
+                  <PremiumButton>
+                    Explore AI Workforce
+                    <ArrowRight size={18} />
+                  </PremiumButton>
                 </Link>
               </div>
 
@@ -612,33 +512,6 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Subtle CTA hint */}
-              <motion.div
-                className="text-center mt-6 relative z-10"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <p className="text-slate-300 text-sm font-semibold flex items-center justify-center gap-2">
-                  <motion.span
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      rotate: [0, 10, -10, 0]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    🔐
-                  </motion.span>
-                  <span className="bg-gradient-to-r from-orange-400 via-orange-300 to-yellow-400 bg-clip-text text-transparent text-base">
-                    Unlock Secret Weapons to Scale Your Business to the Next Level
-                  </span>
-                  <motion.span
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    ↑
-                  </motion.span>
-                </p>
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>
@@ -658,7 +531,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <motion.span
-                className="inline-block px-4 py-1.5 bg-green-100 rounded-full text-xs font-semibold text-green-700 uppercase tracking-wider mb-4"
+                className="inline-flex px-4 py-1.5 bg-green-100 rounded-full text-xs font-semibold text-green-700 uppercase tracking-wider mb-4"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
@@ -712,6 +585,7 @@ export default function Home() {
                 <img
                   src="/images/feature-crm-dashboard.svg"
                   alt="Custom CRM Dashboard showing sales pipeline, lead tracking, and business analytics"
+                  loading="lazy"
                   className="w-full rounded-xl shadow-2xl border border-slate-200/50 transition-all duration-500 group-hover:shadow-3xl group-hover:scale-[1.02]"
                 />
 
@@ -875,16 +749,16 @@ export default function Home() {
             {/* Why Us Card */}
             <Link to="/why-us" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <motion.div
-                className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-2 border-purple-500/30 rounded-3xl p-8 h-full cursor-pointer group hover:border-purple-500/60 transition-all duration-300"
+                className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border-2 border-teal-500/30 rounded-3xl p-8 h-full cursor-pointer group hover:border-teal-500/60 transition-all duration-300"
                 variants={scaleIn}
                 whileHover={{ 
                   y: -10,
-                  boxShadow: "0 30px 80px rgba(147, 51, 234, 0.25)"
+                  boxShadow: "0 30px 80px rgba(20, 184, 166, 0.25)"
                 }}
               >
                 <div className="mb-6">
                   <motion.div
-                    className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center"
+                    className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center"
                     whileHover={{ scale: 1.2, rotate: 10 }}
                   >
                     <ShieldCheck size={32} className="text-white" />
@@ -894,7 +768,7 @@ export default function Home() {
                 <p className="text-slate-600 mb-6">
                   See why service businesses trust us. Transparent pricing, local support, and real results.
                 </p>
-                <div className="inline-flex items-center gap-2 text-purple-600 font-semibold group-hover:text-purple-700">
+                <div className="inline-flex items-center gap-2 text-teal-600 font-semibold group-hover:text-teal-700">
                   Learn Why Us
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </div>

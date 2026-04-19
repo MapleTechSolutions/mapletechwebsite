@@ -66,6 +66,7 @@ function Navbar() {
 
   return (
     <motion.nav
+      aria-label="Main navigation"
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
       style={{
         backgroundColor: scrolled ? 'rgba(255,255,255,0.85)' : 'transparent',
@@ -118,11 +119,13 @@ function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <motion.button
-          className="md:hidden p-2"
-          onClick={() => setMobileMenu(!mobileMenu)}
-          whileTap={{ scale: 0.9 }}
-        >
+      <motion.button
+        className="md:hidden p-2"
+        onClick={() => setMobileMenu(!mobileMenu)}
+        whileTap={{ scale: 0.9 }}
+        aria-label="Toggle menu"
+        aria-expanded={mobileMenu}
+      >
           <AnimatePresence mode="wait">
             {mobileMenu ? (
               <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
@@ -187,7 +190,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <motion.div className="flex items-center gap-3 bg-white rounded-lg p-3" whileHover={{ scale: 1.05 }}>
-            <img src="/logo.png" alt="Maple Tech Solutions" className="h-10 w-auto object-contain" />
+            <img src="/logo.png" alt="Maple Tech Solutions" loading="lazy" className="h-10 w-auto object-contain" />
           </motion.div>
           <div className="flex items-center gap-6 text-sm text-slate-300">
             <motion.a href="/why-us#contact" className="hover:text-white transition-colors font-medium" whileHover={{ scale: 1.08 }}>
@@ -232,23 +235,25 @@ function AppContent() {
       <Navbar />
 
       {/* ========== ROUTES ========== */}
-      <ErrorBoundary>
-        <Suspense fallback={
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="w-10 h-10 border-4 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin" />
-          </div>
-        }>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/platform" element={<Platform />} />
-            <Route path="/automator" element={<Automator />} />
-            <Route path="/why-us" element={<WhyUs />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
+      <main>
+        <ErrorBoundary>
+          <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              <div className="w-10 h-10 border-4 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin" />
+            </div>
+          }>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/platform" element={<Platform />} />
+              <Route path="/automator" element={<Automator />} />
+              <Route path="/why-us" element={<WhyUs />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
+      </main>
 
       {/* ========== FOOTER ========== */}
       <Footer />
