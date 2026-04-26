@@ -11,6 +11,9 @@ const Automator = lazy(() => import('./pages/Automator'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const ForTrades = lazy(() => import('./pages/ForTrades'));
+const ForClinics = lazy(() => import('./pages/ForClinics'));
+const ForConstruction = lazy(() => import('./pages/ForConstruction'));
 
 // Import Shared Components
 import {
@@ -249,6 +252,9 @@ function AppContent() {
               <Route path="/why-us" element={<WhyUs />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/for-trades" element={<ForTrades />} />
+              <Route path="/for-clinics" element={<ForClinics />} />
+              <Route path="/for-construction" element={<ForConstruction />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
