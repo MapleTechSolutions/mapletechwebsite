@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight, GitMerge, LayoutDashboard, Bot, Check,
   Wrench, HeartPulse, ShoppingBag, GraduationCap, Building2,
   Phone, MessageSquare, ShieldCheck
 } from 'lucide-react';
+import { Hero } from '@/components/ui/animated-hero';
 import {
   PremiumButton,
   Card3D,
@@ -15,96 +15,15 @@ import {
   fadeInUp,
   scaleIn,
   cinematicStagger,
-  springConfigs
+  springConfigs,
+  useLiteMotion
 } from '../components/shared/SharedComponents';
 
-// ============================================
-// FLOATING ANIMATED ORBS BACKGROUND
-// ============================================
-const FloatingOrbsBackground = () => {
-  const orbs = [
-    { id: 1, x: 10, y: 20, size: 200, color: 'cyan', delay: 0, duration: 8 },
-    { id: 2, x: 80, y: 30, size: 150, color: 'green', delay: 0.3, duration: 9 },
-    { id: 3, x: 60, y: 70, size: 180, color: 'orange', delay: 0.6, duration: 10 },
-    { id: 4, x: 20, y: 80, size: 120, color: 'cyan', delay: 0.9, duration: 11 },
-    { id: 5, x: 85, y: 60, size: 160, color: 'green', delay: 1.2, duration: 12 },
-  ];
-
-  const getColorGradient = (color) => {
-    const colors = {
-      cyan: 'from-cyan-500/20 to-cyan-600/5',
-      green: 'from-green-500/20 to-emerald-600/5',
-      orange: 'from-orange-500/20 to-red-600/5',
-    };
-    return colors[color] || colors.cyan;
-  };
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {orbs.map((orb) => (
-        <motion.div
-          key={orb.id}
-          className={`absolute rounded-full bg-gradient-to-br ${getColorGradient(orb.color)}`}
-          style={{
-            width: orb.size,
-            height: orb.size,
-            left: `${orb.x}%`,
-            top: `${orb.y}%`,
-            filter: 'blur(40px)',
-            willChange: 'transform',
-          }}
-          animate={{
-            y: [0, 40, 0],
-            x: [0, 25, -15, 0],
-            scale: [1, 1.15, 0.9, 1],
-          }}
-          transition={{
-            duration: orb.duration,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: orb.delay,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
 export default function Home() {
-  const navigate = useNavigate();
-  const { scrollY, scrollYProgress } = useScroll();
-
-  // Mouse position for parallax
-  const mouseX = useMotionValue(0.5);
-  const mouseY = useMotionValue(0.5);
-
-  // Smooth spring values
-  const smoothProgress = useSpring(scrollYProgress, springConfigs.smooth);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      mouseX.set(e.clientX / window.innerWidth);
-      mouseY.set(e.clientY / window.innerHeight);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [mouseX, mouseY]);
-
-  // Parallax transforms
-  const heroY = useTransform(scrollY, [0, 600], [0, 200]);
-  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const heroScale = useTransform(scrollY, [0, 400], [1, 0.92]);
-  const smoothHeroY = useSpring(heroY, springConfigs.gentle);
-
-  const scrollTo = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const {
+    disableInfiniteLoops,
+    disableHoverAnimations,
+  } = useLiteMotion();
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -115,185 +34,78 @@ export default function Home() {
       </Helmet>
 
       {/* ========== HERO SECTION ========== */}
-      <section id="home" className="min-h-screen flex items-center pt-24 pb-16 relative overflow-hidden">
-        {/* Floating Orbs Background */}
-        <FloatingOrbsBackground scrollProgress={smoothProgress} mouseX={mouseX} mouseY={mouseY} />
+      <Hero />
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      {/* WHO WE WORK WITH */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            className="grid lg:grid-cols-2 gap-16 items-center"
-            style={{ opacity: heroOpacity, scale: heroScale, y: smoothHeroY }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center mb-16"
           >
-            {/* Hero Content */}
-            <motion.div
-              className="text-center lg:text-left"
-              variants={cinematicStagger}
-              initial="hidden"
-              animate="show"
-            >
-              <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-cyan-500/20 rounded-full text-sm font-medium text-cyan-600 mb-6 shadow-lg shadow-cyan-500/10"
-                variants={fadeInUp}
-              >
-                <motion.span
-                  className="w-2 h-2 bg-green-500 rounded-full"
-                  animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                Integrations • CRM • AI Automation
-              </motion.div>
-
-              <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight"
-                variants={fadeInUp}
-              >
-                <motion.span
-                  className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent inline-flex"
-                  whileHover={{ scale: 1.03, rotate: -1 }}
-                  transition={{ type: "spring", ...springConfigs.bouncy }}
-                >
-                  Seamless Systems.
-                </motion.span>{' '}
-                <motion.span
-                  className="bg-gradient-to-r from-green-500 to-green-400 bg-clip-text text-transparent inline-flex"
-                  whileHover={{ scale: 1.03, rotate: 1 }}
-                  transition={{ type: "spring", ...springConfigs.bouncy }}
-                >
-                  Custom CRMs.
-                </motion.span>{' '}
-                <motion.span
-                  className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent inline-flex"
-                  whileHover={{ scale: 1.03, rotate: -1 }}
-                  transition={{ type: "spring", ...springConfigs.bouncy }}
-                >
-                  Zero Data Entry.
-                </motion.span>
-              </motion.h1>
-
-              <motion.p
-                className="text-lg md:text-xl text-slate-500 mb-10 max-w-xl mx-auto lg:mx-0"
-                variants={fadeInUp}
-              >
-                We build custom integrations and CRM systems for Canadian service businesses — eliminating the manual data entry and copy-pasting that eats your day.
-              </motion.p>
-
-              <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-                variants={fadeInUp}
-              >
-                <PremiumButton onClick={() => navigate('/why-us#contact')}>
-                  Book a Free Consultation
-                  <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                    <ArrowRight size={18} />
-                  </motion.span>
-                </PremiumButton>
-                <PremiumButton onClick={() => scrollTo('pivot')} variant="secondary">
-                  See Our Solutions
-                </PremiumButton>
-              </motion.div>
-            </motion.div>
-
-            {/* Hero Visual - Network Hub Animation */}
-            <motion.div
-              className="relative h-80 lg:h-[500px]"
-              style={{ y: smoothHeroY }}
-            >
-              {/* Animated connection lines */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 500">
-                <defs>
-                  <linearGradient id="heroLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.8"/>
-                    <stop offset="50%" stopColor="#22C55E" stopOpacity="0.6"/>
-                    <stop offset="100%" stopColor="#F97316" stopOpacity="0.8"/>
-                  </linearGradient>
-                </defs>
-                {[
-                  "M100 80 Q 200 150, 250 250",
-                  "M380 60 Q 300 150, 250 250",
-                  "M420 250 Q 350 250, 250 250",
-                  "M100 380 Q 180 320, 250 250",
-                  "M400 400 Q 330 340, 250 250",
-                  "M60 220 Q 140 230, 250 250"
-                ].map((d, i) => (
-                  <motion.path
-                    key={i}
-                    d={d}
-                    stroke="url(#heroLineGrad)"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeDasharray="10 5"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 2.5, delay: i * 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                ))}
-              </svg>
-
-              {/* Central Node - Logo */}
-              <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl flex items-center justify-center z-10"
-                initial={{ scale: 0, opacity: 0, rotate: -180 }}
-                animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                transition={{ duration: 1.2, delay: 0.6, type: "spring", ...springConfigs.bouncy }}
-                whileHover={{ scale: 1.15, boxShadow: "0 30px 100px rgba(14, 165, 233, 0.4)" }}
-              >
-                <motion.img
-                  src="/logo.png"
-                  alt="Maple Tech"
-                  className="w-24 h-24 object-contain"
-                  animate={{ y: [0, -10, 0], rotate: [0, 2, -2, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </motion.div>
-
-              {/* Orbit Nodes */}
-              {[
-                { Icon: LayoutDashboard, top: '8%', left: '12%', color: 'cyan', delay: 0.7 },
-                { Icon: GitMerge, top: '3%', right: '18%', color: 'green', delay: 0.85 },
-                { Icon: Bot, bottom: '20%', right: '8%', color: 'orange', delay: 1.0 },
-                { Icon: Check, bottom: '10%', left: '8%', color: 'cyan', delay: 1.15 },
-                { Icon: ArrowRight, top: '40%', right: '3%', color: 'green', delay: 1.3 },
-                { Icon: Building2, top: '35%', left: '3%', color: 'orange', delay: 1.45 },
-              ].map(({ Icon, color, delay, ...pos }, i) => (
-                <motion.div
-                  key={i}
-                  className={`absolute w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl flex items-center justify-center border-2 ${
-                    color === 'cyan' ? 'border-cyan-500/30' : color === 'green' ? 'border-green-500/30' : 'border-orange-500/30'
-                  }`}
-                  style={pos}
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.7, delay, type: "spring", ...springConfigs.bouncy }}
-                  whileHover={{
-                    scale: 1.35,
-                    rotate: 10,
-                    boxShadow: color === 'cyan'
-                      ? "0 0 50px rgba(14, 165, 233, 0.6)"
-                      : color === 'green'
-                      ? "0 0 50px rgba(34, 197, 94, 0.6)"
-                      : "0 0 50px rgba(249, 115, 22, 0.6)",
-                  }}
-                >
-                  <motion.div
-                    animate={{
-                      y: [0, -15, 0],
-                      rotate: [0, 3, -3, 0],
-                    }}
-                    transition={{
-                      duration: 5 + i * 0.6,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.4
-                    }}
-                  >
-                    <Icon size={28} className={
-                      color === 'cyan' ? 'text-cyan-500' : color === 'green' ? 'text-green-500' : 'text-orange-500'
-                    } />
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-600 mb-3">
+              Who We Work With
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900">
+              Built for businesses that are done with generic software
+            </h2>
           </motion.div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Trades & Contractors",
+                pain: "Missing calls on job sites. Manual quotes. Slow follow-ups. Losing jobs to faster competitors.",
+                cta: "Built for the trades",
+                href: "/for-trades",
+                accent: "from-orange-500 to-amber-500",
+                bg: "from-orange-50 to-amber-50",
+                border: "border-orange-200 hover:border-orange-400",
+              },
+              {
+                title: "Wellness & Aesthetics",
+                pain: "Vagaro, Mindbody, and Jane have gaps. Your workflow doesn't fit their mould — and your clients feel it.",
+                cta: "Built for clinics & spas",
+                href: "/for-clinics",
+                accent: "from-teal-500 to-cyan-500",
+                bg: "from-teal-50 to-cyan-50",
+                border: "border-teal-200 hover:border-teal-400",
+              },
+              {
+                title: "Construction Operations",
+                pain: "ServiceTitan, Vista, Sage 300 — all live in silos. Your team is copy-pasting data between them daily.",
+                cta: "See how we connect your stack",
+                href: "/for-construction",
+                accent: "from-slate-600 to-slate-800",
+                bg: "from-slate-50 to-slate-100",
+                border: "border-slate-200 hover:border-slate-400",
+              },
+            ].map((niche) => (
+              <motion.div
+                key={niche.title}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-60px" }}
+              >
+                <Link
+                  to={niche.href}
+                  className={`group flex flex-col h-full rounded-3xl border-2 ${niche.border} bg-gradient-to-br ${niche.bg} p-8 transition-all duration-300 hover:shadow-xl`}
+                >
+                  <div className={`w-10 h-1.5 rounded-full bg-gradient-to-r ${niche.accent} mb-6`} />
+                  <h3 className="text-xl font-black text-slate-900 mb-3">{niche.title}</h3>
+                  <p className="text-slate-600 leading-relaxed flex-1 mb-6">{niche.pain}</p>
+                  <span className={`inline-flex items-center gap-2 text-sm font-bold bg-gradient-to-r ${niche.accent} bg-clip-text text-transparent group-hover:gap-3 transition-all duration-200`}>
+                    {niche.cta}
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -443,26 +255,26 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <motion.div
-              className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 relative overflow-hidden border border-orange-500/20"
-              whileHover={{ boxShadow: "0 50px 120px rgba(249, 115, 22, 0.25)", borderColor: "rgba(249, 115, 22, 0.4)" }}
+              <motion.div
+                className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 relative overflow-hidden border border-orange-500/20"
+              whileHover={disableHoverAnimations ? undefined : { boxShadow: "0 40px 90px rgba(249, 115, 22, 0.2)", borderColor: "rgba(249, 115, 22, 0.35)" }}
             >
               <motion.div
                 className="absolute inset-0"
                 style={{
                   background: 'radial-gradient(circle at 30% 50%, rgba(249,115,22,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(14,165,233,0.1) 0%, transparent 50%)',
                 }}
-                animate={{ opacity: [0.5, 0.8, 0.5] }}
-                transition={{ duration: 4, repeat: Infinity }}
+                animate={disableInfiniteLoops ? undefined : { opacity: [0.5, 0.75, 0.5] }}
+                transition={disableInfiniteLoops ? undefined : { duration: 4.5, repeat: Infinity }}
               />
 
               {/* Top Section */}
               <div className="flex flex-col md:flex-row items-center gap-8 mb-8 relative z-10">
                 <motion.div
                   className="w-20 h-20 bg-orange-500/20 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  whileHover={{ scale: 1.2, rotate: 20, boxShadow: "0 0 40px rgba(249, 115, 22, 0.5)" }}
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 5, repeat: Infinity }}
+                  whileHover={disableHoverAnimations ? undefined : { scale: 1.1, rotate: 12, boxShadow: "0 0 30px rgba(249, 115, 22, 0.4)" }}
+                  animate={disableInfiniteLoops ? undefined : { rotate: [0, 5, -5, 0] }}
+                  transition={disableInfiniteLoops ? undefined : { duration: 5, repeat: Infinity }}
                 >
                   <Bot size={40} className="text-orange-400" />
                 </motion.div>
@@ -499,7 +311,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 + i * 0.1 }}
-                    whileHover={{
+                    whileHover={disableHoverAnimations ? undefined : {
                       y: -5,
                       borderColor: "rgba(249, 115, 22, 0.5)",
                       boxShadow: "0 10px 30px rgba(249, 115, 22, 0.2)"
@@ -586,6 +398,7 @@ export default function Home() {
                   src="/images/feature-crm-dashboard.svg"
                   alt="Custom CRM Dashboard showing sales pipeline, lead tracking, and business analytics"
                   loading="lazy"
+                  decoding="async"
                   className="w-full rounded-xl shadow-2xl border border-slate-200/50 transition-all duration-500 group-hover:shadow-3xl group-hover:scale-[1.02]"
                 />
 
@@ -635,7 +448,7 @@ export default function Home() {
                 key={i}
                 className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center cursor-pointer border border-slate-200"
                 variants={scaleIn}
-                whileHover={{
+                whileHover={disableHoverAnimations ? undefined : {
                   scale: 1.1,
                   y: -10,
                   boxShadow: "0 25px 60px rgba(14, 165, 233, 0.2)"
@@ -643,7 +456,7 @@ export default function Home() {
                 transition={{ type: "spring", ...springConfigs.snappy }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.4, rotate: 20 }}
+                  whileHover={disableHoverAnimations ? undefined : { scale: 1.2, rotate: 12 }}
                   transition={{ type: "spring", ...springConfigs.bouncy }}
                 >
                   <Icon size={32} className="mx-auto mb-3 text-cyan-500" />
@@ -693,16 +506,16 @@ export default function Home() {
               <motion.div
                 className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-2 border-cyan-500/30 rounded-3xl p-8 h-full cursor-pointer group hover:border-cyan-500/60 transition-all duration-300"
                 variants={scaleIn}
-                whileHover={{ 
+                whileHover={disableHoverAnimations ? undefined : { 
                   y: -10,
                   boxShadow: "0 30px 80px rgba(6, 182, 212, 0.25)"
                 }}
               >
                 <div className="mb-6">
                   <motion.div
-                    className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                  >
+                  className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center"
+                  whileHover={disableHoverAnimations ? undefined : { scale: 1.1, rotate: 8 }}
+                >
                     <Bot size={32} className="text-white" />
                   </motion.div>
                 </div>
@@ -722,16 +535,16 @@ export default function Home() {
               <motion.div
                 className="bg-gradient-to-br from-orange-500/10 to-green-500/10 border-2 border-orange-500/30 rounded-3xl p-8 h-full cursor-pointer group hover:border-orange-500/60 transition-all duration-300"
                 variants={scaleIn}
-                whileHover={{ 
+                whileHover={disableHoverAnimations ? undefined : { 
                   y: -10,
                   boxShadow: "0 30px 80px rgba(249, 115, 22, 0.25)"
                 }}
               >
                 <div className="mb-6">
                   <motion.div
-                    className="w-16 h-16 bg-gradient-to-br from-orange-500 to-green-500 rounded-2xl flex items-center justify-center"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                  >
+                  className="w-16 h-16 bg-gradient-to-br from-orange-500 to-green-500 rounded-2xl flex items-center justify-center"
+                  whileHover={disableHoverAnimations ? undefined : { scale: 1.1, rotate: 8 }}
+                >
                     <LayoutDashboard size={32} className="text-white" />
                   </motion.div>
                 </div>
@@ -751,16 +564,16 @@ export default function Home() {
               <motion.div
                 className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border-2 border-teal-500/30 rounded-3xl p-8 h-full cursor-pointer group hover:border-teal-500/60 transition-all duration-300"
                 variants={scaleIn}
-                whileHover={{ 
+                whileHover={disableHoverAnimations ? undefined : { 
                   y: -10,
                   boxShadow: "0 30px 80px rgba(20, 184, 166, 0.25)"
                 }}
               >
                 <div className="mb-6">
                   <motion.div
-                    className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                  >
+                  className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center"
+                  whileHover={disableHoverAnimations ? undefined : { scale: 1.1, rotate: 8 }}
+                >
                     <ShieldCheck size={32} className="text-white" />
                   </motion.div>
                 </div>
