@@ -13,8 +13,9 @@ The codebase is functional but was built organically — dead code, broken navig
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Clean & Fix** - Remove dead code, fix navigation bugs, split oversized files, fix the broken image and hook ordering bug
-- [ ] **Phase 2: Infrastructure & Legal** - Add 404 route, error boundary, code splitting, privacy policy, terms of service, and reduced-motion support
-- [ ] **Phase 3: Integrations Showcase** - Build the client integrations showcase section as social proof to strengthen the conversion path
+- [x] **Phase 2: Infrastructure & Legal** - Add 404 route, error boundary, code splitting, privacy policy, terms of service, and reduced-motion support
+- [x] **Phase 3: Niche Positioning & Site Architecture** - Clean up hero, add "Who We Work With" section, build three niche pages for Trades, Wellness & Aesthetics, and Construction Operations
+- [ ] **Phase 4: Niche Page Redesign** - Rebuild all three niche pages with visual depth, personality, and conversion-focused design — each page gets its own visual identity, a "how it works" flow, and a stronger CTA section
 
 ## Phase Details
 
@@ -36,36 +37,93 @@ Plans:
 - [ ] 01-03-PLAN.md — Delete Contact.jsx, remove /contact route, fix all navigation bugs, gradient hero, hash scroll
 - [ ] 01-04-PLAN.md — Split Automator.jsx into 7 extracted section components
 
-### Phase 2: Infrastructure & Legal
-**Goal**: The site handles errors gracefully, unknown URLs show a proper 404 page, legal links point to real pages, and accessibility animations respect OS preferences
+### Phase 2: Site Quality — Infrastructure, SEO, Design & Copy
+**Goal**: The site is production-ready: errors handled gracefully, legal pages exist, Google can index it correctly, the codebase has no dead code or fragile patterns, accessibility passes basic checks, design is consistent, and copy is professional
 **Depends on**: Phase 1
-**Requirements**: INFRA-01, INFRA-02, INFRA-03, LEGAL-01, LEGAL-02, PERF-01
+**Requirements**: INFRA-01, INFRA-02, INFRA-03, LEGAL-01, LEGAL-02, PERF-01, SEO-01, SEO-02, SEO-03, A11Y-01, A11Y-02, DESIGN-01, DESIGN-02, CODE-01, CODE-02, COPY-01
 **Success Criteria** (what must be TRUE):
-  1. Navigating to an unknown URL (e.g., `/xyz`) renders a 404 page with a link back to home — no blank screen
-  2. An unhandled render error in any component shows a fallback UI instead of crashing the entire app
-  3. The Privacy Policy (`/privacy`) and Terms of Service (`/terms`) pages exist and are reachable — footer links no longer point to `#`
-  4. Visitors with OS-level reduced-motion enabled see no looping animations (grid lines, blobs) — the site respects the accessibility preference
+  1. Navigating to `/xyz` renders a branded 404 page with a "Back to Home" link — no blank screen
+  2. An unhandled render error shows a branded fallback UI — app does not crash entirely
+  3. `/privacy` and `/terms` pages exist with real content — footer links no longer point to `#`
+  4. Visitors with reduced-motion OS setting see static backgrounds — no looping blob or grid animations
+  5. Every page has a unique `<title>` and meta description visible in the browser tab and in Google search results
+  6. `public/sitemap.xml`, `public/robots.txt`, and `public/_redirects` exist — Google can crawl and Netlify routes correctly
+  7. `index.html` meta description accurately describes what Maple Tech does (no "Replace 12+ subscriptions" copy)
+  8. `<nav>` has `aria-label`, mobile menu button has `aria-label` + `aria-expanded`, page content is wrapped in `<main>`
+  9. Dead code (`HeroMapleLeafCluster`) is removed, scroll listener is passive, WhyUs hash scroll uses `useLocation().hash`
+  10. Home.jsx "Why Maple Tech?" card uses site palette (no purple/pink), AI Employee section has no gimmick lock animation
+  11. Hero subtext and AI Employee section copy is specific, professional, and benefit-driven
+**Plans**: 5 plans across 2 waves
+**UI hint**: yes
+
+### Phase 3: Niche Positioning & Site Architecture
+**Goal**: The site speaks directly to Maple Tech's three target audiences — each visitor self-identifies, clicks into their niche, and follows a clear path to "Why Us" and contact
+**Depends on**: Phase 2
+**Requirements**: FEAT-01, COPY-02
+**Success Criteria** (what must be TRUE):
+  1. Home page hero is clean — animated titles remain, excess text/pills removed, right-side card has no generic "Layer X" labels
+  2. A "Who We Work With" section on the home page shows 3 niche cards linking to dedicated pages
+  3. `/for-trades` exists: speaks directly to contractors/trades in plain language, outcome-first, no jargon
+  4. `/for-clinics` exists: speaks to wellness & aesthetics businesses, positions custom CRM + client experience over generic software
+  5. `/for-construction` exists: minimal page showing Maple Tech as integration hub (ServiceTitan, Vista, Sage 300), single CTA to contact
+  6. All three niche pages funnel to Why Us page and the contact form
+  7. App.jsx routes registered for all three new pages
+**Plans**: 5 plans
+**UI hint**: yes
+
+### Phase 5: ForTrades Page — Contractor Redesign
+**Goal**: Rebuild /for-trades from scratch with a new visual identity based on a reference site the client approved — every section speaks to the daily painpoints of individual contractors, with conversion-focused layout and design
+**Depends on**: Phase 4
+**Requirements**: FEAT-02
+**Success Criteria** (what must be TRUE):
+  1. /for-trades renders a fully redesigned page matching the approved reference site direction
+  2. Every section directly addresses a real contractor painpoint (missed calls, chasing quotes, slow follow-up)
+  3. Page funnels to Why Us and contact form
+  4. No inline styles — Tailwind only
+  5. npm run build exits 0 with no console errors
+**Plans**: 2 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Delete old ForTrades.jsx + rebuild page skeleton (Hero, Stats Strip, Testimonials, Trades We Serve, How It Works, Why Maple Tech, FAQ, Final CTA)
+- [ ] 05-02-PLAN.md — Build 6 feature showcase sections with animated graphics (DigitalVoiceWave, LoopGraphic, PulseCallGraphic, DocBuilderGraphic + 2 inline SVGs)
+
+### Phase 6: ForClinics Page — Wellness & Aesthetics Redesign
+**Goal**: Rebuild /for-clinics from scratch with a new visual identity — speaks directly to wellness and aesthetics clinic owners, positions custom CRM and client experience as the differentiator
+**Depends on**: Phase 5
+**Requirements**: FEAT-03
+**Success Criteria** (what must be TRUE):
+  1. /for-clinics renders a fully redesigned page matching an approved reference direction
+  2. Copy and sections speak to clinic-specific painpoints (rebooking, client experience, branded touchpoints)
+  3. Page funnels to Why Us and contact form
+  4. No inline styles — Tailwind only
+  5. npm run build exits 0 with no console errors
 **Plans**: TBD
 **UI hint**: yes
 
-### Phase 3: Integrations Showcase
-**Goal**: Visitors can see real client integration work Maple Tech has built, giving them evidence of capability before contacting the business
-**Depends on**: Phase 2
-**Requirements**: FEAT-01
+### Phase 7: ForConstruction Page — Construction Operations Redesign
+**Goal**: Rebuild /for-construction from scratch — minimal, concept-focused page positioning Maple Tech as the integration hub for construction operations (ServiceTitan, Vista, Sage 300), single CTA to contact
+**Depends on**: Phase 6
+**Requirements**: FEAT-04
 **Success Criteria** (what must be TRUE):
-  1. A showcase section or page exists on the live site displaying client integrations — it is reachable from the main navigation or a prominent CTA
-  2. Each integration entry communicates what was built and for what purpose — visitors understand the scope of work without needing to ask
-  3. The showcase follows the existing design system (`SharedComponents.jsx`) — it is visually consistent with the rest of the site
+  1. /for-construction renders a redesigned page matching an approved reference direction
+  2. Page is minimal by design — shows the integration hub concept without fake feature lists
+  3. Single clear CTA to contact
+  4. No inline styles — Tailwind only
+  5. npm run build exits 0 with no console errors
 **Plans**: TBD
 **UI hint**: yes
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Clean & Fix | 4/4 | COMPLETE | 2026-04-18 |
-| 2. Infrastructure & Legal | 0/TBD | Not started | - |
-| 3. Integrations Showcase | 0/TBD | Not started | - |
+| 2. Infrastructure & Legal | 5/5 | COMPLETE | 2026-04-25 |
+| 3. Niche Positioning & Site Architecture | 5/5 | COMPLETE | 2026-04-25 |
+| 4. Niche Page Redesign | 3/3 | COMPLETE (overridden by 5/6/7) | 2026-04-26 |
+| 5. ForTrades — Contractor Redesign | 0/2 | Planning | - |
+| 6. ForClinics — Wellness & Aesthetics Redesign | 0/TBD | Planned | - |
+| 7. ForConstruction — Construction Operations Redesign | 0/TBD | Planned | - |
