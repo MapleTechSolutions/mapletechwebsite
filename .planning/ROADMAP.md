@@ -15,7 +15,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Clean & Fix** - Remove dead code, fix navigation bugs, split oversized files, fix the broken image and hook ordering bug
 - [x] **Phase 2: Infrastructure & Legal** - Add 404 route, error boundary, code splitting, privacy policy, terms of service, and reduced-motion support
 - [x] **Phase 3: Niche Positioning & Site Architecture** - Clean up hero, add "Who We Work With" section, build three niche pages for Trades, Wellness & Aesthetics, and Construction Operations
-- [ ] **Phase 4: Niche Page Redesign** - Rebuild all three niche pages with visual depth, personality, and conversion-focused design — each page gets its own visual identity, a "how it works" flow, and a stronger CTA section
+- [x] **Phase 4: Niche Page Redesign** - Rebuild all three niche pages with visual depth, personality, and conversion-focused design — each page gets its own visual identity, a "how it works" flow, and a stronger CTA section
+- [x] **Phase 5: ForTrades Page — Contractor Redesign** - Rebuild /for-trades from scratch with a contractor-specific visual system, custom feature simulations, Saskatchewan trust positioning, and a conversion-focused CTA path
 
 ## Phase Details
 
@@ -81,11 +82,12 @@ Plans:
   3. Page funnels to Why Us and contact form
   4. No inline styles — Tailwind only
   5. npm run build exits 0 with no console errors
-**Plans**: 2 plans
+**Plans**: 2 plans + 1 approved creative refinement summary
 
 Plans:
-- [ ] 05-01-PLAN.md — Delete old ForTrades.jsx + rebuild page skeleton (Hero, Stats Strip, Testimonials, Trades We Serve, How It Works, Why Maple Tech, FAQ, Final CTA)
-- [ ] 05-02-PLAN.md — Build 6 feature showcase sections with animated graphics (DigitalVoiceWave, LoopGraphic, PulseCallGraphic, DocBuilderGraphic + 2 inline SVGs)
+- [x] 05-01-PLAN.md — Delete old ForTrades.jsx + rebuild page skeleton (Hero, Stats Strip, Testimonials, Trades We Serve, How It Works, Why Maple Tech, FAQ, Final CTA)
+- [x] 05-02-PLAN.md — Build 6 feature showcase sections with animated graphics (extracted to ForTradesFeatures.jsx)
+- [x] 05-03-GEMINI-REFINEMENT-SUMMARY.md — Final approved creative pass: custom Google search simulator, phone/laptop mockups, Saskatchewan trust row, local trade imagery, stability guardrails
 
 ### Phase 6: ForClinics Page — Wellness & Aesthetics Redesign
 **Goal**: Rebuild /for-clinics from scratch with a new visual identity — speaks directly to wellness and aesthetics clinic owners, positions custom CRM and client experience as the differentiator
@@ -97,8 +99,11 @@ Plans:
   3. Page funnels to Why Us and contact form
   4. No inline styles — Tailwind only
   5. npm run build exits 0 with no console errors
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 2 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Delete Phase 4 ForClinics.jsx + rebuild page shell (Hero, Pain/Gaps, CRM grid, Comparison table, Social proof strip, Part 2 pivot intro, How it works, Final CTA) with ForClinicsFeatures stub
+- [ ] 06-02-PLAN.md — Build ForClinicsFeatures.jsx with three flywheel sections (Branded App, Rewards & Loyalty, Referral Engine) and inline flywheel SVG
 
 ### Phase 7: ForConstruction Page — Construction Operations Redesign
 **Goal**: Rebuild /for-construction from scratch — minimal, concept-focused page positioning Maple Tech as the integration hub for construction operations (ServiceTitan, Vista, Sage 300), single CTA to contact
@@ -124,6 +129,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 2. Infrastructure & Legal | 5/5 | COMPLETE | 2026-04-25 |
 | 3. Niche Positioning & Site Architecture | 5/5 | COMPLETE | 2026-04-25 |
 | 4. Niche Page Redesign | 3/3 | COMPLETE (overridden by 5/6/7) | 2026-04-26 |
-| 5. ForTrades — Contractor Redesign | 0/2 | Planning | - |
-| 6. ForClinics — Wellness & Aesthetics Redesign | 0/TBD | Planned | - |
+| 5. ForTrades — Contractor Redesign | 2/2 + refinement | COMPLETE | 2026-04-27 |
+| 6. ForClinics — Wellness & Aesthetics Redesign | 0/2 | Planned | - |
 | 7. ForConstruction — Construction Operations Redesign | 0/TBD | Planned | - |
